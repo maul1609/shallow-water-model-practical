@@ -1,0 +1,11 @@
+Running code:
+    * MATLAB: type >>shallow_water_model at the command prompt
+    * To do the plots in the MATLAB version type >>animate after running 
+      the model
+    * Python: can be run from ipython, by typing run -i shallow_water_model.py 
+    * To do the plots in the python version type run -i animate.py after 
+      running the model
+Contributing development:
+	* at the moment the code is under public repo. Contact 
+		the code owner to contribute ideas. 
+	
