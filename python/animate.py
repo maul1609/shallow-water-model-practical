@@ -62,10 +62,10 @@ for it in range(0,noutput):
       # Plot the height field
       im=ax1.imshow(np.transpose(h+H)*height_scale, \
         extent=[np.min(x_1000km),np.max(x_1000km),np.min(y_1000km),np.max(y_1000km)], \
-        cmap='jet')
+        cmap='jet',origin='lower')
       # Set other axes properties and plot a colorbar
       cb1=f.colorbar(im,ax=ax1)
-      cb1.set_label('height (m)')
+      cb1.set_label('height (km)')
       # Contour the terrain:
       cs=ax1.contour(x_1000km,y_1000km,np.transpose(H),levels=range(1,11001,1000),colors='k')
       
@@ -81,7 +81,7 @@ for it in range(0,noutput):
       # Now plot the vorticity
       im2=ax2.imshow(np.transpose(vorticity), \
         extent=[np.min(x_1000km),np.max(x_1000km),np.min(y_1000km),np.max(y_1000km)], \
-        cmap='jet')
+        cmap='jet',origin='lower')
       # Set other axes properties and plot a colorbar
       cb2=f.colorbar(im2,ax=ax2)
       cb2.set_label('vorticity (s$^{-1}$)')

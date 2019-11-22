@@ -222,26 +222,35 @@ for n in range(0,nt):
    (unew, vnew, h_new) = lw.lax_wendroff(dx, dy, dt, g, u, v, h, u_accel, v_accel);
 
    # Update the wind and height fields, taking care to enforce 
-   # boundary conditions 
-   """
-  u = unew([end 1:end 1],[1 1:end end]);
-  v = vnew([end 1:end 1],[1 1:end end]);
-  v(:,[1 end]) = 0;
-  h(:,2:end-1) = h_new([end 1:end 1],:);
-   """
-   u[1:-1,1:-1] = unew[0:,0:];
-   u[[-1,0],1:-1]  = unew[[0,-1],:]
-   u[1:-1,[0,-1]]  = unew[:,[0,-1]]
-
-   v[1:-1,1:-1] = vnew[0:,0:];
-   v[[-1,0],0]  = vnew[[0,-1],0]
-   v[1:-1,[0,-1]]  = vnew[:,[0,-1]]
+   # boundary conditions    
+   u[1:-1,1:-1] = unew;
+   v[1:-1,1:-1] = vnew;
    
-   v[:,[0, -1]] = 0.;
-
-   h[1:-1,1:-1] = h_new[0:,0:];
-   h[[0,-1],1:-1]  = h_new[[-1,0],:]
-
+   # first x-slice
+   u[0,1:-1]=unew[-1,:]
+   u[0,0]=unew[-1,0]
+   u[0,-1]=unew[-1,-1]
+   v[0,1:-1]=vnew[-1,:]
+   v[0,0]=vnew[-1,0]
+   v[0,-1]=vnew[-1,-1]
+   # last x-slice
+   u[-1,1:-1]=unew[1,:]
+   u[-1,0]=unew[1,0]
+   u[-1,-1]=unew[1,-1]
+   v[-1,1:-1]=vnew[1,:]
+   v[-1,0]=vnew[1,0]
+   v[-1,-1]=vnew[1,-1]
+   
+   # no flux from north / south
+   v[:,[0,-1]]=0.;
+   # interior
+   h[1:-1,1:-1] = h_new;
+   # first x-slice
+   h[0,1:-1]=h_new[-1,:]
+   # last x-slice
+   h[-1,1:-1]=h_new[1,:]
+   
+   
 
 print('Now run "animate" to animate the simulation');
 
