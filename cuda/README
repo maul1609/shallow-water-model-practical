@@ -1,0 +1,10 @@
+To compile:
+    make
+Run the executable:
+    ./shallow_water_model_cuda
+
+Implemented initial conditions:
+    UNIFORM_WESTERLY
+
+Implemented orography:
+    FLAT
