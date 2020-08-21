@@ -1,0 +1,12 @@
+To comiple:
+    make
+Run the executable:
+    ./shallow_water_model
+
+Implemented initial conditions:
+    UNIFORM_WESTERLY
+    REANALYSIS
+
+Implemented orography:
+    FLAT
+    EARTH_OROGRAPHY
