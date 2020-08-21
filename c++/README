@@ -1,4 +1,4 @@
-To comiple:
+To compile:
     make
 Run the executable:
     ./shallow_water_model

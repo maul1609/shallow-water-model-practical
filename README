@@ -5,6 +5,7 @@ Running code:
     * Python: can be run from ipython, by typing run -i shallow_water_model.py 
     * To do the plots in the python version type run -i animate.py after 
       running the model
+    * C++: navigate into the c++ folder and follow the readme file.
 Contributing development:
 	* at the moment the code is under public repo. Contact 
 		the code owner to contribute ideas. 
